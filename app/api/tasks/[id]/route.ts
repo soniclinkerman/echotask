@@ -9,16 +9,8 @@ export async function PUT(
   try {
     const { userId } = auth();
     const { id } = params;
-    console.log(id);
 
     const { title, description, date, completed, important } = await req.json();
-
-    console.log(id);
-    console.log(title);
-    console.log(description);
-    console.log(date);
-    console.log(completed);
-    console.log(important);
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized", status: 401 });

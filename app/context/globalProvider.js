@@ -36,7 +36,6 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const triggerIsEditing = (id) => {
-    console.log(id);
     setIsEditing(true);
     openModal();
   };
@@ -116,7 +115,6 @@ export const GlobalProvider = ({ children }) => {
       toast.success("Task deleted");
 
       allTasks();
-      // console.log(res.data);
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");

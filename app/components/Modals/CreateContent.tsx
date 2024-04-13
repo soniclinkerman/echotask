@@ -9,7 +9,6 @@ import Button from "../Button/Button";
 import { plus } from "@/app/utils/Icons";
 
 const CreateContent = (task: any) => {
-  console.log(task);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");

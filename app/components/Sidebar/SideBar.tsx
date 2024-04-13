@@ -23,7 +23,7 @@ const SideBar = () => {
   return (
     <SidebarStyled theme={theme} collapsed={collapsed}>
       <button onClick={collapseMenu} className="toggle-nav">
-        {collapsed ? bars : arrowLeft}
+        {collapsed.toString() ? bars : arrowLeft}
       </button>
       <div className="profile">
         <div className="profile-overlay"></div>
