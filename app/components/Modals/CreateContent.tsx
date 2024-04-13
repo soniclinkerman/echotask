@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import styled from "styled-components";
 import Button from "../Button/Button";
-import { plus } from "@/app/utils/Icons";
+import { plus } from "../../utils/Icons";
 
 const CreateContent = (task: any) => {
   const [title, setTitle] = useState("");
