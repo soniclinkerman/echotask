@@ -3,7 +3,7 @@ import { useGlobalState } from "@/app/context/globalProvider";
 import styled from "styled-components";
 import CreateContent from "../Modals/CreateContent";
 import TaskItem from "../TaskItem/TaskItem";
-import { plus } from "@/app/utils/Icons";
+import { plus } from "../../utils/Icons";
 import Modal from "../Modals/Modal";
 
 interface Props {
