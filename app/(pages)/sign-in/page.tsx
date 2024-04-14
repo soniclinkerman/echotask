@@ -1,13 +1,13 @@
 "use client";
 import { SignIn } from "@clerk/nextjs";
-import React from "react";
+import { redirect } from "next/navigation";
 
-function SignInPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <SignIn />;
-    </div>
-  );
+export default function page() {
+  redirect(`/`); // Navigate to the new post page
+  <div className="flex items-center justify-center h-full">
+    hjklkjk
+    {/* if (userId) {
+  } */}
+    {/* <SignIn afterSignInUrl={"/"} /> */}
+  </div>;
 }
-
-export default SignInPage;

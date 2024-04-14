@@ -4,8 +4,9 @@ import "./globals.css";
 import SideBar from "./components/Sidebar/SideBar";
 import GlobalStyleProvider from "./providers/GlobalStyleProvider";
 import ContextProvider from "./providers/ContextProvider";
-import { ClerkProvider, auth } from "@clerk/nextjs";
+import { ClerkProvider, UserButton, auth } from "@clerk/nextjs";
 import NextTopLoader from "nextjs-toploader";
+import { redirect } from "next/navigation";
 const lato = Lato({
   weight: ["100", "300", "700"],
   subsets: ["latin"],

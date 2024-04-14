@@ -1,13 +1,11 @@
 "use client";
 import { SignUp } from "@clerk/nextjs";
-import React from "react";
+import { redirect } from "next/navigation";
 
-function SignUpPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <SignUp />
-    </div>
-  );
+export default function page() {
+  redirect(`/`);
+  // <div className="flex items-center justify-center h-full">
+  //   ghjk
+  //   <SignUp afterSignUpUrl={"/"} />
+  // </div>;
 }
-
-export default SignUpPage;
