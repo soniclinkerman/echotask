@@ -70,10 +70,7 @@ const CreateContent = (task: any) => {
       if (isEditing) {
         updateTask(savedTask.id, task);
       } else {
-        const res = await axios.post(
-          `${process.env.NEXTAUTH_URL}/api/tasks`,
-          task
-        );
+        const res = await axios.post("/api/tasks", task);
         if (res.data.error) {
           toast.error(res.data.error);
         }

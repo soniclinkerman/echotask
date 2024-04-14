@@ -47,7 +47,7 @@ export const GlobalProvider = ({ children }) => {
   const allTasks = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get(`${process.env.NEXTAUTH_URL}/api/tasks`);
+      const res = await axios.get(`/api/tasks`);
       const sorted = res.data.sort((a, b) => {
         return (
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -82,10 +82,7 @@ export const GlobalProvider = ({ children }) => {
 
   const toggleTaskCompletion = async (task) => {
     try {
-      const res = await axios.put(
-        `${process.env.NEXTAUTH_URL}/api/tasks`,
-        task
-      );
+      const res = await axios.put("/api/tasks", task);
 
       console.log(res.data);
       toast.success("Task Updated");
