@@ -1,7 +1,5 @@
-const moment = require("moment");
-
 const formatDate = (date) => {
-  return moment(date).format("MM/DD/YYYY");
+  return new Date(date).toLocaleDateString("en-US");
 };
 
 export default formatDate;
