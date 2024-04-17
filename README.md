@@ -1,8 +1,8 @@
-EchoTask is a simpel todo-app designed to help you keep track of your everyday tasks!
+EchoTask is a simple todo-app designed to help you keep track of your everyday tasks!
 
 Project demo: https://echotask.vercel.app/
 
-This app allows you to c
+This app allows you to
 -Create Tasks
 -Filter tasks based on importance
 -Edit Tasks
