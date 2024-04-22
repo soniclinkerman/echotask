@@ -4,6 +4,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import themes from "./themes";
 import axios from "axios";
 import toast from "react-hot-toast";
+
 import { useUser } from "@clerk/nextjs";
 
 export const GlobalContext = createContext();
@@ -34,7 +35,7 @@ export const GlobalProvider = ({ children }) => {
     setIsEditing(false);
   };
 
-  const triggerIsEditing = (id) => {
+  const triggerIsEditing = () => {
     setIsEditing(true);
     openModal();
   };

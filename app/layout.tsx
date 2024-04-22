@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
-import { Lato } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/Sidebar/SideBar";
 import GlobalStyleProvider from "./providers/GlobalStyleProvider";
 import ContextProvider from "./providers/ContextProvider";
-import { ClerkProvider, UserButton, auth } from "@clerk/nextjs";
 import NextTopLoader from "nextjs-toploader";
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+
+import { Lato } from "next/font/google";
+import { ClerkProvider, auth } from "@clerk/nextjs";
+
 const lato = Lato({
   weight: ["100", "300", "700"],
   subsets: ["latin"],
