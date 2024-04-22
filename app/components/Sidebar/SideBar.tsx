@@ -1,12 +1,11 @@
 "use client";
-import { useGlobalState } from "@/app/context/globalProvider";
 
 import styled from "styled-components";
 import React from "react";
-import Image from "next/image";
 import menu from "@/app//utils/menu";
 import Link from "next/link";
 import Button from "../Button/Button";
+import { useGlobalState } from "@/app/context/globalProvider";
 import { arrowLeft, bars, logout } from "@/app/utils/icons";
 import { UserButton, useClerk } from "@clerk/nextjs";
 import { usePathname, useRouter } from "next/navigation";
@@ -31,12 +30,7 @@ const SideBar = () => {
           <div className="user-btn absolute z-20 top-0 w-full h-full">
             <UserButton showName={true} />
           </div>
-          {/* <Image width={70} height={70} src="/avatar.png" alt="profile" /> */}
         </div>
-        <h1>
-          {/* <span>John</span>
-          <span>Doe</span> */}
-        </h1>
       </div>
       <ul className="nav-items">
         {menu.map((item) => {
@@ -127,20 +121,10 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
       flex-direction: column-reverse;
       color: white;
     }
-    /* .cl-rootBox {
-      width: 100%;
-      height: 100%;
-
-      .cl-userButtonBox {
-        width: 100%;
-        height: 100%;
-      }
-      */
 
     .cl-userButtonTrigger {
       width: 100%;
       height: 100%;
-      /* opacity: 0; */
     }
     .cl-userButtonOuterIdentifier {
       color: white;
@@ -165,7 +149,6 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
       height: 100%;
       backdrop-filter: blur(10px);
       z-index: 0;
-      /* background: ${(props) => props.theme.colorBg3}; */
       transition: all 0.55s linear;
 
       border-radius: 1rem;
@@ -189,7 +172,6 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
     .image {
       flex-shrink: 0;
       display: inline-block;
-      /* overflow: hidden; */
       transition: all 0.5s ease;
       border-radius: 100%;
 

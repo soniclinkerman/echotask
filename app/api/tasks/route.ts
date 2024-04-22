@@ -33,16 +33,6 @@ export async function POST(req: Request) {
       });
     }
 
-    // let dateEntered = new Date(date);
-    // let currentDate = new Date();
-
-    // if (dateEntered < currentDate) {
-    //   return NextResponse.json({
-    //     error: "Date must be the same or ahead of current date",
-    //     status: 400,
-    //   });
-    // }
-
     if (title.length < 3) {
       return NextResponse.json({
         error: "Title must be a least 3 characters long",
@@ -82,7 +72,6 @@ export async function GET(req: Request) {
       },
     });
 
-    // console.log("TASKS: ", tasks);
     return NextResponse.json(tasks);
   } catch (error) {
     console.log("ERROR GETTING TASK: ", error);

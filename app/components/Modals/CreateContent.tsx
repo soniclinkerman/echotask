@@ -1,11 +1,11 @@
 "use client";
 
-import { useGlobalState } from "@/app/context/globalProvider";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import styled from "styled-components";
 import Button from "../Button/Button";
+import { useEffect, useState } from "react";
+import { useGlobalState } from "@/app/context/globalProvider";
 import { plus } from "@/app/utils/icons";
 
 const CreateContent = (task: any) => {
@@ -127,7 +127,6 @@ const CreateContent = (task: any) => {
         <input
           id="completed"
           checked={completed}
-          // value={completed.toString()}
           type="checkbox"
           name="completed"
           onChange={handleChange("completed")}

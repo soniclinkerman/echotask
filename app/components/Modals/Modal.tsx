@@ -1,14 +1,14 @@
 "use client";
 
-import { useGlobalState } from "@/app/context/globalProvider";
 import React from "react";
 import styled from "styled-components";
+import { useGlobalState } from "@/app/context/globalProvider";
 
-interface Props {
+interface ModalProps {
   content: React.ReactNode;
 }
 
-const Modal = ({ content }: Props) => {
+const Modal = ({ content }: ModalProps) => {
   const { closeModal } = useGlobalState();
   const { theme } = useGlobalState();
   return (

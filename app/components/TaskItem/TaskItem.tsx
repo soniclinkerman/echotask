@@ -1,10 +1,10 @@
 "use client";
-import { useGlobalState } from "@/app/context/globalProvider";
-import { edit, trash } from "../../utils/icons";
 import React from "react";
 import styled from "styled-components";
 import formatDate from "@/app/utils/formatDate";
-interface Props {
+import { useGlobalState } from "@/app/context/globalProvider";
+import { edit, trash } from "../../utils/icons";
+interface TaskItemProps {
   title: string;
   description: string;
   date: string;
@@ -19,7 +19,7 @@ const TaskItem = ({
   isCompleted,
   id,
   isImportant,
-}: Props) => {
+}: TaskItemProps) => {
   const {
     theme,
     deleteTask,

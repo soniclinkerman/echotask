@@ -1,19 +1,17 @@
 "use client";
-import { useGlobalState } from "@/app/context/globalProvider";
 import styled from "styled-components";
 import CreateContent from "../Modals/CreateContent";
 import TaskItem from "../TaskItem/TaskItem";
-import { plus } from "@/app/utils/icons";
 import Modal from "../Modals/Modal";
+import { useGlobalState } from "@/app/context/globalProvider";
+import { plus } from "@/app/utils/icons";
 
-interface Props {
+interface TasksProps {
   title: string;
   tasks: any[];
 }
-const Tasks = ({ title, tasks }: Props) => {
+const Tasks = ({ title, tasks }: TasksProps) => {
   const { theme, isLoading, openModal, modal, savedTask } = useGlobalState();
-
-  // const isLoading = true;
 
   return (
     <TaskStyled theme={theme}>

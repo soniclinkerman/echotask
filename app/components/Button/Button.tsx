@@ -1,11 +1,10 @@
 "use client";
 
-import { useGlobalState } from "@/app/context/globalProvider";
-
 import React from "react";
 import styled from "styled-components";
 
-interface Props {
+import { useGlobalState } from "@/app/context/globalProvider";
+interface ButtonProps {
   icon?: React.ReactNode;
   name?: string;
   background?: string;
@@ -31,7 +30,7 @@ const Button = ({
   type,
   color,
   border,
-}: Props) => {
+}: ButtonProps) => {
   const { theme } = useGlobalState();
   return (
     <ButtonStyled

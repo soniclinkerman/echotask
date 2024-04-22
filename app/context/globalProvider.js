@@ -3,9 +3,9 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import themes from "./themes";
 import axios from "axios";
-import { useUser } from "@clerk/nextjs";
-import formatDate from "../utils/formatDate";
 import toast from "react-hot-toast";
+import { useUser } from "@clerk/nextjs";
+
 export const GlobalContext = createContext();
 export const GlobalUpdateContext = createContext();
 
@@ -32,7 +32,6 @@ export const GlobalProvider = ({ children }) => {
   const closeModal = () => {
     setModal(false);
     setIsEditing(false);
-    // setSavedTask([]);
   };
 
   const triggerIsEditing = (id) => {
