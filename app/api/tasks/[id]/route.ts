@@ -31,7 +31,6 @@ export async function PUT(
 
     return NextResponse.json(task);
   } catch (error) {
-    console.log("Error Updating Task: ", error);
     return NextResponse.json({ error: "Error Updating Task", status: 500 });
   }
 }
@@ -49,10 +48,8 @@ export async function DELETE(
     const task = await prisma.task.delete({
       where: { id },
     });
-    console.log("Task Deleted: ", task);
     return NextResponse.json(task);
   } catch (error) {
-    console.log("Error Deleting Task: ", error);
     return NextResponse.json({ error: "Error Deleting Task", status: 500 });
   }
 }

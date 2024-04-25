@@ -83,7 +83,6 @@ const CreateContent = (task: any) => {
       }
     } catch (error) {
       toast.error("Something went wrong");
-      console.log(error);
     }
   };
   return (

@@ -74,7 +74,6 @@ const TaskItem = ({
             };
             triggerIsEditing(id);
             setSavedTask(valuesOfTask);
-            title = "Hello";
           }}
         >
           {edit}

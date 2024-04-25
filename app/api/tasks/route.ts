@@ -50,11 +50,9 @@ export async function POST(req: Request) {
         userId,
       },
     });
-    console.log("TASK CREATED: ", task);
 
     return NextResponse.json(task);
   } catch (error) {
-    console.log("ERROR CREATING TASK: ", error);
     return NextResponse.json({ error: "Error creating task", status: 500 });
   }
 }
@@ -74,7 +72,6 @@ export async function GET(req: Request) {
 
     return NextResponse.json(tasks);
   } catch (error) {
-    console.log("ERROR GETTING TASK: ", error);
     return NextResponse.json({ error: "Error getting task", status: 500 });
   }
 }
@@ -99,7 +96,6 @@ export async function PUT(req: Request) {
 
     return NextResponse.json(task);
   } catch (error) {
-    console.log("ERROR UPDATING TASK: ", error);
     return NextResponse.json({ error: "Error updating task", status: 500 });
   }
 }
