@@ -33,33 +33,18 @@ const TaskItem = ({
       <p>{description}</p>
       <p className="date">{formatDate(date)}</p>
       <div className="task-footer">
-        {isCompleted ? (
-          <button
-            className="completed"
-            onClick={() => {
-              const task = {
-                id,
-                isCompleted: !isCompleted,
-              };
-              toggleTaskCompletion(task);
-            }}
-          >
-            Completed
-          </button>
-        ) : (
-          <button
-            className="incomplete"
-            onClick={() => {
-              const task = {
-                id,
-                isCompleted: !isCompleted,
-              };
-              toggleTaskCompletion(task);
-            }}
-          >
-            Incomplete
-          </button>
-        )}
+        <button
+          className={isCompleted ? "completed" : "incomplete"}
+          onClick={() => {
+            const task = {
+              id,
+              isCompleted: !isCompleted,
+            };
+            toggleTaskCompletion(task);
+          }}
+        >
+          {isCompleted ? "Completed " : "Incomplete"}
+        </button>
 
         <button
           className="edit"

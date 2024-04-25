@@ -17,10 +17,10 @@ const SideBar = () => {
   const { signOut } = useClerk();
 
   const handleClick = (link: string) => {
-    router.push(link);
+    router.push(`${link}`);
   };
   return (
-    <SidebarStyled theme={theme} collapsed={collapsed}>
+    <SidebarStyled theme={theme} $collapsed={collapsed}>
       <button onClick={collapseMenu} className="toggle-nav">
         {collapsed.toString() ? bars : arrowLeft}
       </button>
@@ -67,7 +67,7 @@ const SideBar = () => {
   );
 };
 
-const SidebarStyled = styled.nav<{ collapsed: boolean }>`
+const SidebarStyled = styled.nav<{ $collapsed: boolean }>`
   position: relative;
   width: ${(props) => props.theme.sidebarWidth};
   background-color: ${(props) => props.theme.colorBg2};
@@ -86,7 +86,7 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
     transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
 
     transform: ${(props) =>
-      props.collapsed ? "translateX(-100%)" : "translateX(0)"};
+      props.$collapsed ? "translateX(-100%)" : "translateX(0)"};
 
     .toggle-nav {
       display: block !important;

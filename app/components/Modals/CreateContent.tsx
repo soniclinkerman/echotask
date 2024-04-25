@@ -1,29 +1,24 @@
 "use client";
 
-import axios from "axios";
 import toast from "react-hot-toast";
 import styled from "styled-components";
 import Button from "../Button/Button";
 import { useEffect, useState } from "react";
 import { useGlobalState } from "@/app/context/globalProvider";
 import { plus } from "@/app/utils/icons";
-
+import { useParams, useRouter } from "next/navigation";
+import menu from "@/app/utils/menu";
 const CreateContent = (task: any) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [completed, setCompleted] = useState(false);
   const [important, setImportant] = useState(false);
-  const { theme, closeModal, allTasks, isEditing, savedTask, updateTask } =
-    useGlobalState();
 
-  const [data, setData] = useState({
-    title: "",
-    description: "",
-    date: "",
-    completed: false,
-    important: false,
-  });
+  const params = useParams();
+  const router = useRouter();
+  const { theme, isEditing, savedTask, updateTask, createTask, isValidRoute } =
+    useGlobalState();
 
   const handleChange = (name: String) => (e: any) => {
     switch (name) {
@@ -70,15 +65,16 @@ const CreateContent = (task: any) => {
       if (isEditing) {
         updateTask(savedTask.id, task);
       } else {
-        const res = await axios.post("/api/tasks", task);
-        if (res.data.error) {
-          toast.error(res.data.error);
-        }
+        createTask(task);
+        let isValidRoute = false;
+        menu.forEach((url) => {
+          if (url.link === `/tasks/${params.filteredTasks}` && !isValidRoute) {
+            isValidRoute = true;
+          }
+        });
 
-        if (!res.data.error) {
-          toast.success("Task created successfuly");
-          allTasks();
-          closeModal();
+        if (!isValidRoute) {
+          router.push("/");
         }
       }
     } catch (error) {

@@ -10,3 +10,14 @@ This app allows you to
 - Edit Tasks
 - Quick Toggle completion
 - User Login
+
+# Note
+
+You must have your own env file with the necessary if you want the original app functionality
+
+## Commands
+
+```
+npm install
+npm run dev
+```

@@ -19,6 +19,7 @@ export const GlobalProvider = ({ children }) => {
   const [savedTask, setSavedTask] = useState([]);
   const theme = themes[selectedTheme];
 
+  //UI
   const openModal = () => {
     setModal(true);
   };
@@ -37,6 +38,7 @@ export const GlobalProvider = ({ children }) => {
     setCollapsed(!collapsed);
   };
 
+  //API
   const allTasks = async () => {
     setIsLoading(true);
     try {
@@ -51,6 +53,19 @@ export const GlobalProvider = ({ children }) => {
       setIsLoading(false);
     } catch (error) {
       toast.error("Unable to retrieve tasks at this time");
+    }
+  };
+
+  const createTask = async (task) => {
+    const res = await axios.post("/api/tasks", task);
+    if (res.data.error) {
+      toast.error(res.data.error);
+    }
+
+    if (!res.data.error) {
+      toast.success("Task created successfuly");
+      allTasks();
+      closeModal();
     }
   };
 
@@ -82,6 +97,18 @@ export const GlobalProvider = ({ children }) => {
     }
   };
 
+  const deleteTask = async (id) => {
+    try {
+      const res = await axios.delete(`/api/tasks/${id}`);
+      toast.success("Task deleted");
+
+      allTasks();
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
+
+  //Filtered Data
   const completedTasks = tasks.filter((task) => task.isCompleted === true);
   const incompleteTasks = tasks.filter((task) => task.isCompleted === false);
   const importantTasks = tasks.filter((task) => task.isImportant === true);
@@ -99,17 +126,6 @@ export const GlobalProvider = ({ children }) => {
     setTasks(testTasks);
   };
 
-  const deleteTask = async (id) => {
-    try {
-      const res = await axios.delete(`/api/tasks/${id}`);
-      toast.success("Task deleted");
-
-      allTasks();
-    } catch (error) {
-      toast.error("Something went wrong");
-    }
-  };
-
   useEffect(() => {
     if (user) {
       allTasks();
@@ -123,22 +139,23 @@ export const GlobalProvider = ({ children }) => {
       value={{
         theme,
         tasks,
+        allTasks,
         deleteTask,
+        toggleTaskCompletion,
+        updateTask,
+        createTask,
         isLoading,
         completedTasks,
         incompleteTasks,
         importantTasks,
-        toggleTaskCompletion,
         openModal,
         closeModal,
         modal,
-        allTasks,
         collapsed,
         collapseMenu,
         triggerIsEditing,
         isEditing,
         setSavedTask,
-        updateTask,
         savedTask,
       }}
     >

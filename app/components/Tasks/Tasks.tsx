@@ -5,10 +5,11 @@ import TaskItem from "../TaskItem/TaskItem";
 import Modal from "../Modals/Modal";
 import { useGlobalState } from "@/app/context/globalProvider";
 import { plus } from "@/app/utils/icons";
+import { Task } from "@prisma/client";
 
 interface TasksProps {
   title: string;
-  tasks: any[];
+  tasks: Task[];
 }
 const Tasks = ({ title, tasks }: TasksProps) => {
   const { theme, isLoading, openModal, modal, savedTask } = useGlobalState();
@@ -24,7 +25,7 @@ const Tasks = ({ title, tasks }: TasksProps) => {
             <TaskItem
               key={task.id}
               title={task.title}
-              description={task.description}
+              description={task.description || ""}
               date={task.date}
               isCompleted={task.isCompleted}
               isImportant={task.isImportant}
